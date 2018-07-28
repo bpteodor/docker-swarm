@@ -1,9 +1,6 @@
 #!/bin/bash
 
-CLUSTER_NAME=swarm-box
-MASTERS=2
-WORKERS=2
-DM_OPTS="--driver virtualbox"
+source setenv.sh
 
 # create masters VMs
 for ((i=0; i<$MASTERS; i++))
@@ -44,7 +41,5 @@ do
 	docker swarm join --token $SWARM_WORKER_TOKEN $MASTER_IP
 done
 
-# setup connection to master
-$(docker-machine env $CLUSTER_NAME-m0)
-
 echo "swarm ready ($MASTER managers $WORKERS workers)"
+echo "to connect run: eval \$(docker-machine env $CLUSTER_NAME-m0)"

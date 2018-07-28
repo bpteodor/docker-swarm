@@ -1,8 +1,6 @@
 #!/bin/bash
 
-CLUSTER_NAME=swarm-box
-MASTERS=2
-WORKERS=2
+source setenv.sh
 
 #destroy workers
 for ((i=0; i<$WORKERS; i++))
