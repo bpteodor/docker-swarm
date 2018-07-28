@@ -41,5 +41,5 @@ do
 	docker swarm join --token $SWARM_WORKER_TOKEN $MASTER_IP
 done
 
-echo "swarm ready ($MASTER managers $WORKERS workers)"
+echo "swarm ready ($MASTERS managers $WORKERS workers)"
 echo "to connect run: eval \$(docker-machine env $CLUSTER_NAME-m0)"
